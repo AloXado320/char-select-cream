@@ -28,7 +28,7 @@ local TEX_CREAM_STAR_ICON = get_texture_info("star-icon") -- Located in "texture
 
 -- All Located in "sound"
 local VOICETABLE_CREAM = {
-    [CHAR_SOUND_ATTACKED] = 'cream_attacked.ogg',
+       [CHAR_SOUND_ATTACKED] = 'cream_attacked.ogg',
        [CHAR_SOUND_COUGHING1] = 'cream_cough1.ogg',
        [CHAR_SOUND_COUGHING2] = 'cream_cough2.ogg',
        [CHAR_SOUND_COUGHING3] = 'cream_cough3.ogg',
@@ -466,6 +466,47 @@ local function character_has_cream_model(m)
     return false
 end
 
+ACT_CREAM_EXIT_STAR = allocate_mario_action(ACT_FLAG_STATIONARY | ACT_FLAG_INTANGIBLE)
+
+local function act_cream_exit_star(m)
+    stationary_ground_step(m)
+    set_mario_animation(m, MARIO_ANIM_TAKE_CAP_OFF_THEN_ON)
+    local animFrame = m.marioObj.header.gfx.animInfo.animFrame
+    if not (animFrame < 12) and animFrame < 80 then
+        m.marioBodyState.eyeState = MARIO_EYES_LOOK_LEFT
+    end
+    if not (animFrame < 81) then
+        m.marioBodyState.eyeState = MARIO_EYES_LOOK_RIGHT
+    end
+    if animFrame == 10 then
+        m.marioBodyState.eyeState = MARIO_EYES_CLOSED;
+    end
+    if animFrame == 30 then
+        play_sound(SOUND_ACTION_TERRAIN_LANDING, m.marioObj.header.gfx.cameraToObject);
+    end
+    if animFrame == 80 then
+        -- This is terrible, any custom sound function won't play when the previous action is ACT_EXIT_LAND_SAVE_DIALOG
+        -- As a matter for fact, playing this function:
+        -- play_sound(SOUND_MARIO_HAHA, m.marioObj.header.gfx.cameraToObject)
+        -- Does makes it play properly albeit with Mario's voice
+        play_character_sound(m, CHAR_SOUND_HAHA)
+    end
+    m.marioObj.header.gfx.angle.y = m.marioObj.header.gfx.angle.y + 0x8000
+    --djui_chat_message_create(tostring(animFrame))
+    if m == gMarioStates[0] then handle_save_menu(m) end
+    return false
+end
+
+hook_mario_action(ACT_CREAM_EXIT_STAR, act_cream_exit_star)
+
+-- Cream's face expressions
+local function cream_set_expressions(m)
+    if m.action == ACT_EXIT_LAND_SAVE_DIALOG and m.actionState == 3 then
+        -- Make a new action state for custom exit star celebration
+        set_mario_action(m, ACT_CREAM_EXIT_STAR, 0)
+    end
+end
+
 local creamHoverAct = {
     [ACT_JUMP] = true,
     [ACT_DOUBLE_JUMP] = true,
@@ -484,6 +525,7 @@ local creamAnimTable = {
     [MARIO_ANIM_IDLE_HEAD_LEFT] = "cream_anim_idle_head",
     [MARIO_ANIM_IDLE_HEAD_RIGHT] = "cream_anim_idle_head",
     [MARIO_ANIM_IDLE_HEAD_CENTER] = "cream_anim_idle_head",
+    [MARIO_ANIM_TAKE_CAP_OFF_THEN_ON] = "cream_anim_exit_land",
 }
 
 local function cream_update(m, e)
@@ -491,6 +533,9 @@ local function cream_update(m, e)
     if creamAnimTable[m.marioObj.header.gfx.animInfo.animID] then
         smlua_anim_util_set_animation(m.marioObj, creamAnimTable[m.marioObj.header.gfx.animInfo.animID])
     end
+
+    -- Expressions
+    cream_set_expressions(m)
 
     -- Hovering
     if creamHoverAct[m.action] and m.prevAction ~= ACT_HOVERING and m.vel.y < 20 and (m.input & INPUT_A_PRESSED) ~= 0 then
