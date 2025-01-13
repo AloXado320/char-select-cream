@@ -249,7 +249,7 @@ local function act_hovering(m)
         if (m.vel.y < -20) then m.vel.y = -20 end
 
         if (e.flyStamina >= max_stamina) then
-            m.marioBodyState.eyeState = 2 -- eyes half closed
+            m.marioBodyState.eyeState = MARIO_EYES_HALF_CLOSED
         end
     end
 
@@ -257,7 +257,7 @@ local function act_hovering(m)
         play_mario_sound(m, 0, CHAR_SOUND_YAWNING)
         e.flySoundState = 0
     end
-    
+
     if (m.input & INPUT_Z_PRESSED) ~= 0 then
         return set_mario_action(m, ACT_GROUND_POUND, 0)
     end
@@ -345,7 +345,7 @@ local function hud_render()
     local widthScale = maxf(width, 321.4) * MATH_DIVIDE_320
     local currChar = character_get_current_number()
     local charColors = character_get_current_table().color
-    
+
     -- Mimick button swaying, which is missing from the paper code
     local buttonAnim = 0
     local charSelectAnim = get_options_status(_G.charSelect.optionTableRef.anims)
@@ -499,11 +499,30 @@ end
 
 hook_mario_action(ACT_CREAM_EXIT_STAR, act_cream_exit_star)
 
+local creamStarAct = {
+    [ACT_STAR_DANCE_EXIT] = true,
+    [ACT_STAR_DANCE_NO_EXIT] = true,
+    [ACT_STAR_DANCE_WATER] = true,
+}
+
 -- Cream's face expressions
 local function cream_set_expressions(m)
+    -- Make a new action state for custom exit star celebration
     if m.action == ACT_EXIT_LAND_SAVE_DIALOG and m.actionState == 3 then
-        -- Make a new action state for custom exit star celebration
         set_mario_action(m, ACT_CREAM_EXIT_STAR, 0)
+    end
+
+    -- Cream's happy expression when she gets a star
+    if creamStarAct[m.action] then
+        if m.actionState == 0 then
+            if m.actionTimer == 1 then m.marioBodyState.eyeState = MARIO_EYES_LOOK_LEFT end
+            if m.actionTimer == 42 or m.actionTimer == 80 then
+                m.marioBodyState.eyeState = MARIO_EYES_LOOK_RIGHT
+            end
+        end
+        if m.actionState ~= 2 and m.actionTimer >= 40 then
+            m.marioBodyState.eyeState = MARIO_EYES_LOOK_RIGHT
+        end
     end
 end
 
@@ -520,12 +539,14 @@ local creamHoverAct = {
 }
 
 local creamAnimTable = {
-    [MARIO_ANIM_RUNNING] = "cream_anim_running", 
+    [MARIO_ANIM_RUNNING] = "cream_anim_running",
     [MARIO_ANIM_RUNNING_UNUSED] = "cream_anim_running",
     [MARIO_ANIM_IDLE_HEAD_LEFT] = "cream_anim_idle_head",
     [MARIO_ANIM_IDLE_HEAD_RIGHT] = "cream_anim_idle_head",
     [MARIO_ANIM_IDLE_HEAD_CENTER] = "cream_anim_idle_head",
     [MARIO_ANIM_TAKE_CAP_OFF_THEN_ON] = "cream_anim_exit_land",
+    [MARIO_ANIM_PUT_CAP_ON] = "cream_anim_cap_on",
+    [MARIO_ANIM_STAR_DANCE] = "cream_anim_star_dance",
 }
 
 local function cream_update(m, e)
@@ -543,8 +564,8 @@ local function cream_update(m, e)
     end
 
     if m.action == ACT_HOVERING then
-        m.marioBodyState.wingFlutter = 0
-        m.marioBodyState.capState = 2 -- MARIO_HAS_WING_CAP_ON
+        m.marioBodyState.wingFlutter = 1
+        m.marioBodyState.capState = MARIO_HAS_WING_CAP_ON
     else
         if e.flyStamina ~= 0 then e.flyStamina = 0 end
         if e.flyTimer ~= 0 then e.flyTimer = 0 end
