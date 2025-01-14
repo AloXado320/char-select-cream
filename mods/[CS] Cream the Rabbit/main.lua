@@ -18,10 +18,34 @@ if not _G.charSelectExists then
 end
 
 E_MODEL_CREAM = smlua_model_util_get_id("cream_geo") -- Located in "actors"
-E_MODEL_CREAM_FLY = smlua_model_util_get_id("cream_fly_geo") -- Located in "actors"
-
+E_MODEL_CREAMEX = smlua_model_util_get_id("cream_np_geo") -- Located in "actors"
 E_MODEL_CREAM2 = smlua_model_util_get_id("cream_riders_geo") -- Located in "actors"
+E_MODEL_CREAM3 = smlua_model_util_get_id("cream_winter_geo") -- Located in "actors"
+E_MODEL_CREAM4 = smlua_model_util_get_id("cream_spring_geo") -- Located in "actors"
+E_MODEL_CREAM5 = smlua_model_util_get_id("cream_unicorn_geo") -- Located in "actors"
+E_MODEL_CREAM6 = smlua_model_util_get_id("cream_yukata_geo") -- Located in "actors"
+E_MODEL_CREAM7 = smlua_model_util_get_id("cream_swimsuit_geo") -- Located in "actors"
+E_MODEL_CREAM8 = smlua_model_util_get_id("cream_halloween_geo") -- Located in "actors"
+E_MODEL_CREAM9 = smlua_model_util_get_id("cream_junihitoe_geo") -- Located in "actors"
+E_MODEL_CREAM10 = smlua_model_util_get_id("cream_princess_geo") -- Located in "actors"
+E_MODEL_CREAM11 = smlua_model_util_get_id("cream_detective_geo") -- Located in "actors"
+E_MODEL_CREAM12 = smlua_model_util_get_id("cream_drummer_geo") -- Located in "actors"
+E_MODEL_CREAM13 = smlua_model_util_get_id("cream_lunar_geo") -- Located in "actors"
+
+E_MODEL_CREAM_FLY = smlua_model_util_get_id("cream_fly_geo") -- Located in "actors"
+E_MODEL_CREAMEX_FLY = smlua_model_util_get_id("cream_np_fly_geo") -- Located in "actors"
 E_MODEL_CREAM2_FLY = smlua_model_util_get_id("cream_riders_fly_geo") -- Located in "actors"
+E_MODEL_CREAM3_FLY = smlua_model_util_get_id("cream_winter_fly_geo") -- Located in "actors"
+E_MODEL_CREAM4_FLY = smlua_model_util_get_id("cream_spring_fly_geo") -- Located in "actors"
+E_MODEL_CREAM5_FLY = smlua_model_util_get_id("cream_unicorn_fly_geo") -- Located in "actors"
+E_MODEL_CREAM6_FLY = smlua_model_util_get_id("cream_yukata_fly_geo") -- Located in "actors"
+E_MODEL_CREAM7_FLY = smlua_model_util_get_id("cream_swimsuit_fly_geo") -- Located in "actors"
+E_MODEL_CREAM8_FLY = smlua_model_util_get_id("cream_halloween_fly_geo") -- Located in "actors"
+E_MODEL_CREAM9_FLY = smlua_model_util_get_id("cream_junihitoe_fly_geo") -- Located in "actors"
+E_MODEL_CREAM10_FLY = smlua_model_util_get_id("cream_princess_fly_geo") -- Located in "actors"
+E_MODEL_CREAM11_FLY = smlua_model_util_get_id("cream_detective_fly_geo") -- Located in "actors"
+E_MODEL_CREAM12_FLY = smlua_model_util_get_id("cream_drummer_fly_geo") -- Located in "actors"
+E_MODEL_CREAM13_FLY = smlua_model_util_get_id("cream_lunar_fly_geo") -- Located in "actors"
 
 local TEX_CREAM_LIFE_ICON = get_texture_info("cream-icon") -- Located in "textures"
 local TEX_CREAM_STAR_ICON = get_texture_info("star-icon") -- Located in "textures"
@@ -46,7 +70,7 @@ local VOICETABLE_CREAM = {
 	[CHAR_SOUND_EEUH] = 'cream_eeuh.ogg', -- Climbing over ledge
 	[CHAR_SOUND_WAAAOOOW] = 'cream_scream.ogg', -- Falling a long distance
 	[CHAR_SOUND_TWIRL_BOUNCE] = 'cream_whee.ogg', -- Bouncing off of a flower spring
-	[CHAR_SOUND_GROUND_POUND_WAH] = 'cream_groundpound_wah.ogg', 
+	[CHAR_SOUND_GROUND_POUND_WAH] = 'cream_groundpound_wah.ogg',
 	[CHAR_SOUND_HRMM] = 'cream_hrmm.ogg', -- Lifting something
     [CHAR_SOUND_OOOF] = 'cream_oof.ogg', -- Getting nudged
     [CHAR_SOUND_OOOF2] = 'cream_oof.ogg', -- Getting nudged
@@ -142,7 +166,20 @@ end
     CT_CREAM = _G.charSelect.character_add("Cream the Rabbit", {"She a bnuuy, She go hop!", "", "Straight from Super Cream 64,", "she's ready to go make some new friends!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, E_MODEL_CREAM, CT_MARIO, TEX_CREAM_LIFE_ICON)
 
     cream_character_add_model(E_MODEL_CREAM, E_MODEL_CREAM_FLY)
+    cream_character_add_model(E_MODEL_CREAMEX, E_MODEL_CREAMEX_FLY)
     cream_character_add_model(E_MODEL_CREAM2, E_MODEL_CREAM2_FLY)
+    cream_character_add_model(E_MODEL_CREAM3, E_MODEL_CREAM3_FLY)
+    cream_character_add_model(E_MODEL_CREAM4, E_MODEL_CREAM4_FLY)
+    cream_character_add_model(E_MODEL_CREAM5, E_MODEL_CREAM5_FLY)
+    cream_character_add_model(E_MODEL_CREAM6, E_MODEL_CREAM6_FLY)
+    cream_character_add_model(E_MODEL_CREAM7, E_MODEL_CREAM7_FLY)
+    cream_character_add_model(E_MODEL_CREAM8, E_MODEL_CREAM8_FLY)
+    cream_character_add_model(E_MODEL_CREAM9, E_MODEL_CREAM9_FLY)
+    cream_character_add_model(E_MODEL_CREAM10, E_MODEL_CREAM10_FLY)
+    cream_character_add_model(E_MODEL_CREAM11, E_MODEL_CREAM11_FLY)
+    cream_character_add_model(E_MODEL_CREAM12, E_MODEL_CREAM12_FLY)
+    cream_character_add_model(E_MODEL_CREAM13, E_MODEL_CREAM13_FLY)
+
     --_G.charSelect.character_add_palette_preset(E_MODEL_CREAM, PALETTE_CREAM)
     _G.charSelect.character_add_health_meter(CT_CREAM, creamHealthMeter)
     --CSloaded = true
@@ -305,8 +342,20 @@ local math_sin = math.sin
 local altCostumes = {
     [CT_CREAM] = {
         currSkin = 1,
-        {name = "", model = E_MODEL_CREAM, flyModel = E_MODEL_CREAM_FLY},
+        {name = "", model = E_MODEL_CREAMEX, flyModel = E_MODEL_CREAMEX_FLY},
+        {name = "Custom Palette", model = E_MODEL_CREAM, flyModel = E_MODEL_CREAM_FLY},
         {name = "Riders", model = E_MODEL_CREAM2, flyModel = E_MODEL_CREAM2_FLY},
+        {name = "Winter", model = E_MODEL_CREAM3, flyModel = E_MODEL_CREAM3_FLY},
+        {name = "Spring", model = E_MODEL_CREAM4, flyModel = E_MODEL_CREAM4_FLY},
+        {name = "Unicorn", model = E_MODEL_CREAM5, flyModel = E_MODEL_CREAM5_FLY},
+        {name = "Yukata", model = E_MODEL_CREAM6, flyModel = E_MODEL_CREAM6_FLY},
+        {name = "Swimsuit", model = E_MODEL_CREAM7, flyModel = E_MODEL_CREAM7_FLY},
+        {name = "Halloween", model = E_MODEL_CREAM8, flyModel = E_MODEL_CREAM8_FLY},
+        {name = "Junihotoe", model = E_MODEL_CREAM9, flyModel = E_MODEL_CREAM9_FLY},
+        {name = "Princess", model = E_MODEL_CREAM10, flyModel = E_MODEL_CREAM10_FLY},
+        {name = "Detective", model = E_MODEL_CREAM11, flyModel = E_MODEL_CREAM11_FLY},
+        {name = "Drummer", model = E_MODEL_CREAM12, flyModel = E_MODEL_CREAM12_FLY},
+        {name = "Lunar NY, by Jennifer Hernandez", model = E_MODEL_CREAM13, flyModel = E_MODEL_CREAM13_FLY},
     },
 }
 
