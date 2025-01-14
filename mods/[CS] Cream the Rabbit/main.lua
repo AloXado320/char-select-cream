@@ -538,15 +538,27 @@ local creamHoverAct = {
     [ACT_SPECIAL_TRIPLE_JUMP] = true,
 }
 
+-- MARIO_ANIM_PULL_DOOR_WALK_IN was changed in SC64 but there's no noticeable change
 local creamAnimTable = {
-    [MARIO_ANIM_RUNNING] = "cream_anim_running",
-    [MARIO_ANIM_RUNNING_UNUSED] = "cream_anim_running",
-    [MARIO_ANIM_IDLE_HEAD_LEFT] = "cream_anim_idle_head",
-    [MARIO_ANIM_IDLE_HEAD_RIGHT] = "cream_anim_idle_head",
-    [MARIO_ANIM_IDLE_HEAD_CENTER] = "cream_anim_idle_head",
-    [MARIO_ANIM_TAKE_CAP_OFF_THEN_ON] = "cream_anim_exit_land",
-    [MARIO_ANIM_PUT_CAP_ON] = "cream_anim_cap_on",
-    [MARIO_ANIM_STAR_DANCE] = "cream_anim_star_dance",
+    -- Regular animations
+    [MARIO_ANIM_PUT_CAP_ON] = "cream_anim_cap_on", -- 0x36
+    [MARIO_ANIM_TAKE_CAP_OFF_THEN_ON] = "cream_anim_painting_jump", -- 0x37
+    [MARIO_ANIM_RUNNING] = "cream_anim_running", -- 0x72
+    [MARIO_ANIM_RUNNING_UNUSED] = "cream_anim_running", -- 0x73
+    [MARIO_ANIM_IDLE_HEAD_LEFT] = "cream_anim_idle_head", -- 0xC3
+    [MARIO_ANIM_IDLE_HEAD_RIGHT] = "cream_anim_idle_head", -- 0xC4
+    [MARIO_ANIM_IDLE_HEAD_CENTER] = "cream_anim_idle_head", -- 0xC5
+    [MARIO_ANIM_STAR_DANCE] = "cream_anim_star_dance", -- 0xCD
+    -- Sleeping animations
+    [MARIO_ANIM_START_SLEEP_IDLE] = "cream_anim_start_sleep_idle", -- 0x81
+    [MARIO_ANIM_START_SLEEP_SCRATCH] = "cream_anim_start_sleep_scratch", -- 0x82
+    [MARIO_ANIM_START_SLEEP_YAWN] = "cream_anim_star_sleep_yawn", -- 0x83
+    [MARIO_ANIM_START_SLEEP_SITTING] = "cream_anim_star_sleep_sitting", -- 0x84
+    [MARIO_ANIM_SLEEP_IDLE] = "cream_anim_sleep_idle", -- 0x85
+    [MARIO_ANIM_SLEEP_START_LYING] = "cream_anim_sleep_start_lying", -- 0x86
+    [MARIO_ANIM_SLEEP_LYING] = "cream_anim_sleep_lying", -- 0x87
+    [MARIO_ANIM_WAKE_FROM_SLEEP] = "cream_anim_waking_sitting", -- 0xC8
+    [MARIO_ANIM_WAKE_FROM_LYING] = "cream_anim_waking_lying_down", -- 0xC9
 }
 
 local function cream_update(m, e)
