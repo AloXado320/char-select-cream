@@ -52,48 +52,48 @@ local TEX_CREAM_STAR_ICON = get_texture_info("star-icon") -- Located in "texture
 
 -- All Located in "sound"
 local VOICETABLE_CREAM = {
-	[CHAR_SOUND_LETS_A_GO] = 'cream_lets_go.ogg', -- Starting level
-	[CHAR_SOUND_PUNCH_YAH] = 'cream_punch_yah.ogg', -- Punch 1
-	[CHAR_SOUND_PUNCH_WAH] = 'cream_punch_wah.ogg', -- Punch 2
-	[CHAR_SOUND_PUNCH_HOO] = 'cream_punch_hoo.ogg', -- Punch 3
-	[CHAR_SOUND_YAH_WAH_HOO] = {'cream_punch_yah.ogg', 'cream_punch_wah.ogg'}, -- First/Second jump sounds
-	[CHAR_SOUND_HOOHOO] = 'cream_hoohoo.ogg', -- Third jump sound
-	[CHAR_SOUND_YAHOO_WAHA_YIPPEE] = {'cream_yahoo.ogg', 'cream_waha.ogg', 'cream_yippie.ogg'}, -- Triple jump sounds
-	[CHAR_SOUND_UH] = 'cream_uh.ogg', -- Wall bonk
-	[CHAR_SOUND_UH2] = 'cream_uh2.ogg', -- Landing after long jump
-	[CHAR_SOUND_UH2_2] = 'cream_uh2.ogg', -- Same sound as UH2; jumping onto ledge
-	[CHAR_SOUND_HAHA] = 'cream_haha.ogg', -- Landing triple jump
-	[CHAR_SOUND_YAHOO] = 'cream_yahoo.ogg', -- Long jump
-	[CHAR_SOUND_DOH] = 'cream_doh.ogg', -- Long jump wall bonk
-	[CHAR_SOUND_WHOA] = 'cream_whoa.ogg', -- Grabbing ledge
+    [CHAR_SOUND_LETS_A_GO] = 'cream_lets_go.ogg', -- Starting level
+    [CHAR_SOUND_PUNCH_YAH] = 'cream_punch_yah.ogg', -- Punch 1
+    [CHAR_SOUND_PUNCH_WAH] = 'cream_punch_wah.ogg', -- Punch 2
+    [CHAR_SOUND_PUNCH_HOO] = 'cream_punch_hoo.ogg', -- Punch 3
+    [CHAR_SOUND_YAH_WAH_HOO] = {'cream_punch_yah.ogg', 'cream_punch_wah.ogg'}, -- First/Second jump sounds
+    [CHAR_SOUND_HOOHOO] = 'cream_hoohoo.ogg', -- Third jump sound
+    [CHAR_SOUND_YAHOO_WAHA_YIPPEE] = {'cream_yahoo.ogg', 'cream_waha.ogg', 'cream_yippie.ogg'}, -- Triple jump sounds
+    [CHAR_SOUND_UH] = 'cream_uh.ogg', -- Wall bonk
+    [CHAR_SOUND_UH2] = 'cream_uh2.ogg', -- Landing after long jump
+    [CHAR_SOUND_UH2_2] = 'cream_uh2.ogg', -- Same sound as UH2; jumping onto ledge
+    [CHAR_SOUND_HAHA] = 'cream_haha.ogg', -- Landing triple jump
+    [CHAR_SOUND_YAHOO] = 'cream_yahoo.ogg', -- Long jump
+    [CHAR_SOUND_DOH] = 'cream_doh.ogg', -- Long jump wall bonk
+    [CHAR_SOUND_WHOA] = 'cream_whoa.ogg', -- Grabbing ledge
     [CHAR_SOUND_WAH2] = 'cream_wah2.ogg',
-	[CHAR_SOUND_EEUH] = 'cream_eeuh.ogg', -- Climbing over ledge
-	[CHAR_SOUND_WAAAOOOW] = 'cream_scream.ogg', -- Falling a long distance
-	[CHAR_SOUND_TWIRL_BOUNCE] = 'cream_whee.ogg', -- Bouncing off of a flower spring
-	[CHAR_SOUND_GROUND_POUND_WAH] = 'cream_groundpound_wah.ogg',
-	[CHAR_SOUND_HRMM] = 'cream_hrmm.ogg', -- Lifting something
+    [CHAR_SOUND_EEUH] = 'cream_eeuh.ogg', -- Climbing over ledge
+    [CHAR_SOUND_WAAAOOOW] = 'cream_scream.ogg', -- Falling a long distance
+    [CHAR_SOUND_TWIRL_BOUNCE] = 'cream_whee.ogg', -- Bouncing off of a flower spring
+    [CHAR_SOUND_GROUND_POUND_WAH] = 'cream_groundpound_wah.ogg',
+    [CHAR_SOUND_HRMM] = 'cream_hrmm.ogg', -- Lifting something
     [CHAR_SOUND_OOOF] = 'cream_oof.ogg', -- Getting nudged
     [CHAR_SOUND_OOOF2] = 'cream_oof.ogg', -- Getting nudged
-	[CHAR_SOUND_HERE_WE_GO] = 'cream_here_we_go.ogg', -- Star get
-	[CHAR_SOUND_SO_LONGA_BOWSER] = 'cream_buhbye.ogg', -- Throwing Bowser
+    [CHAR_SOUND_HERE_WE_GO] = 'cream_here_we_go.ogg', -- Star get
+    [CHAR_SOUND_SO_LONGA_BOWSER] = 'cream_buhbye.ogg', -- Throwing Bowser
 --DAMAGE
-	[CHAR_SOUND_ATTACKED] = 'cream_attacked.ogg', -- Damaged
-	[CHAR_SOUND_PANTING] = {'cream_panting1.ogg', 'cream_panting2.ogg', 'cream_panting3.ogg'}, -- Low health
-	[CHAR_SOUND_ON_FIRE] = 'cream_onfire.ogg', -- Burned
+    [CHAR_SOUND_ATTACKED] = 'cream_attacked.ogg', -- Damaged
+    [CHAR_SOUND_PANTING] = {'cream_panting1.ogg', 'cream_panting2.ogg', 'cream_panting3.ogg'}, -- Low health
+    [CHAR_SOUND_ON_FIRE] = 'cream_onfire.ogg', -- Burned
 --SLEEP SOUNDS
-	[CHAR_SOUND_IMA_TIRED] = 'cream_imtired.ogg', -- Mario feeling tired
-	[CHAR_SOUND_YAWNING] = 'cream_yawning.ogg', -- Mario yawning before he sits down to sleep
-	[CHAR_SOUND_SNORING1] = 'cream_snoring1.ogg', -- Snore Inhale
-	[CHAR_SOUND_SNORING2] = 'cream_snoring2.ogg', -- Exhale
-	[CHAR_SOUND_SNORING3] = 'cream_snoring3.ogg', -- Sleep talking / mumbling
+    [CHAR_SOUND_IMA_TIRED] = 'cream_imtired.ogg', -- Mario feeling tired
+    [CHAR_SOUND_YAWNING] = 'cream_yawning.ogg', -- Mario yawning before he sits down to sleep
+    [CHAR_SOUND_SNORING1] = 'cream_snoring1.ogg', -- Snore Inhale
+    [CHAR_SOUND_SNORING2] = 'cream_snoring2.ogg', -- Exhale
+    [CHAR_SOUND_SNORING3] = 'cream_snoring3.ogg', -- Sleep talking / mumbling
 --COUGHING (USED IN THE GAS MAZE)
-	[CHAR_SOUND_COUGHING1] = 'cream_cough1.ogg', -- Cough take 1
-	[CHAR_SOUND_COUGHING2] = 'cream_cough2.ogg', -- Cough take 2
-	[CHAR_SOUND_COUGHING3] = 'cream_cough3.ogg', -- Cough take 3
+    [CHAR_SOUND_COUGHING1] = 'cream_cough1.ogg', -- Cough take 1
+    [CHAR_SOUND_COUGHING2] = 'cream_cough2.ogg', -- Cough take 2
+    [CHAR_SOUND_COUGHING3] = 'cream_cough3.ogg', -- Cough take 3
 --DEATH
-	[CHAR_SOUND_DYING] = 'cream_dying.ogg', -- Dying from damage
-	[CHAR_SOUND_DROWNING] = 'cream_silent.ogg', -- Running out of air underwater
-	[CHAR_SOUND_MAMA_MIA] = 'cream_awww.ogg' -- Booted out of level
+    [CHAR_SOUND_DYING] = 'cream_dying.ogg', -- Dying from damage
+    [CHAR_SOUND_DROWNING] = 'cream_silent.ogg', -- Running out of air underwater
+    [CHAR_SOUND_MAMA_MIA] = 'cream_awww.ogg' -- Booted out of level
 }
 
    -- All Located in "actors"
