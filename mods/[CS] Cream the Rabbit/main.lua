@@ -8,15 +8,17 @@
     Use this if you're curious on how anything here works >v<
 ]]
 
-local TEXT_MOD_NAME = "Cream the Rabbit"
-local TEXT_MOD_VERSION = "2.0"
+-- Mod Name and version
+CREAM_CS_MOD_NAME = "Cream the Rabbit"
+CREAM_CS_MOD_VERSION = "2.0"
 
 -- Stops mod from loading if Character Select isn't on
 if not _G.charSelectExists then
-    djui_popup_create("\\#ffffdc\\\n"..TEXT_MOD_NAME.."\nRequires the Character Select Mod\nto use as a Library!\n\nPlease turn on the Character Select Mod\nand Restart the Room!", 6)
+    djui_popup_create("\\#ffffdc\\\n"..CREAM_CS_MOD_NAME.."\nRequires the Character Select Mod\nto use as a Library!\n\nPlease turn on the Character Select Mod\nand Restart the Room!", 6)
     return 0
 end
 
+-- All cream models and fly variants
 E_MODEL_CREAM = smlua_model_util_get_id("cream_geo") -- Located in "actors"
 E_MODEL_CREAMEX = smlua_model_util_get_id("cream_np_geo") -- Located in "actors"
 E_MODEL_CREAM2 = smlua_model_util_get_id("cream_riders_geo") -- Located in "actors"
@@ -47,6 +49,7 @@ E_MODEL_CREAM11_FLY = smlua_model_util_get_id("cream_detective_fly_geo") -- Loca
 E_MODEL_CREAM12_FLY = smlua_model_util_get_id("cream_drummer_fly_geo") -- Located in "actors"
 E_MODEL_CREAM13_FLY = smlua_model_util_get_id("cream_lunar_fly_geo") -- Located in "actors"
 
+-- All hud textures
 local TEX_CREAM_LIFE_ICON = get_texture_info("cream-icon") -- Located in "textures"
 local TEX_CREAM_STAR_ICON = get_texture_info("star-icon") -- Located in "textures"
 
@@ -96,7 +99,7 @@ local VOICETABLE_CREAM = {
     [CHAR_SOUND_MAMA_MIA] = 'cream_awww.ogg' -- Booted out of level
 }
 
-   -- All Located in "actors"
+-- Cap models, all Located in "actors"
 local CAPTABLE_CREAM = {
     normal = smlua_model_util_get_id("cream_cap_geo"),
     wing = smlua_model_util_get_id("cream_wing_cap_geo"),
@@ -153,37 +156,10 @@ end
     for it, the only function you require is character_add
 ]]
 
+-- Cream main character creation
+CT_CREAM = _G.charSelect.character_add("Cream the Rabbit", {"She a bnuuy, She go hop!", "", "Straight from Super Cream 64,", "she's ready to go make some new friends!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, E_MODEL_CREAM, CT_MARIO, TEX_CREAM_LIFE_ICON)
 
-local function cream_character_add_model(model, flyModel)
-    _G.charSelect.character_add_caps(model, CAPTABLE_CREAM)
-    _G.charSelect.character_add_voice(model, VOICETABLE_CREAM)
-    _G.charSelect.character_add_voice(flyModel, VOICETABLE_CREAM)
-    _G.charSelect.character_add_celebration_star(model, E_MODEL_CREAM_STAR, TEX_CREAM_STAR_ICON)
-end
-
---local CSloaded = false
---local function on_character_select_load()
-    CT_CREAM = _G.charSelect.character_add("Cream the Rabbit", {"She a bnuuy, She go hop!", "", "Straight from Super Cream 64,", "she's ready to go make some new friends!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, E_MODEL_CREAM, CT_MARIO, TEX_CREAM_LIFE_ICON)
-
-    cream_character_add_model(E_MODEL_CREAM, E_MODEL_CREAM_FLY)
-    cream_character_add_model(E_MODEL_CREAMEX, E_MODEL_CREAMEX_FLY)
-    cream_character_add_model(E_MODEL_CREAM2, E_MODEL_CREAM2_FLY)
-    cream_character_add_model(E_MODEL_CREAM3, E_MODEL_CREAM3_FLY)
-    cream_character_add_model(E_MODEL_CREAM4, E_MODEL_CREAM4_FLY)
-    cream_character_add_model(E_MODEL_CREAM5, E_MODEL_CREAM5_FLY)
-    cream_character_add_model(E_MODEL_CREAM6, E_MODEL_CREAM6_FLY)
-    cream_character_add_model(E_MODEL_CREAM7, E_MODEL_CREAM7_FLY)
-    cream_character_add_model(E_MODEL_CREAM8, E_MODEL_CREAM8_FLY)
-    cream_character_add_model(E_MODEL_CREAM9, E_MODEL_CREAM9_FLY)
-    cream_character_add_model(E_MODEL_CREAM10, E_MODEL_CREAM10_FLY)
-    cream_character_add_model(E_MODEL_CREAM11, E_MODEL_CREAM11_FLY)
-    cream_character_add_model(E_MODEL_CREAM12, E_MODEL_CREAM12_FLY)
-    cream_character_add_model(E_MODEL_CREAM13, E_MODEL_CREAM13_FLY)
-
-    --_G.charSelect.character_add_palette_preset(E_MODEL_CREAM, PALETTE_CREAM)
-    _G.charSelect.character_add_health_meter(CT_CREAM, creamHealthMeter)
-    --CSloaded = true
---end
+_G.charSelect.character_add_health_meter(CT_CREAM, creamHealthMeter)
 
 local function on_character_sound(m, sound)
     if _G.charSelect.character_get_voice(m) == VOICETABLE_CREAM then return _G.charSelect.voice.sound(m, sound) end
@@ -193,7 +169,6 @@ local function on_character_snore(m)
     if _G.charSelect.character_get_voice(m) == VOICETABLE_CREAM then return _G.charSelect.voice.snore(m) end
 end
 
---hook_event(HOOK_ON_MODS_LOADED, on_character_select_load)
 hook_event(HOOK_CHARACTER_SOUND, on_character_sound)
 hook_event(HOOK_MARIO_UPDATE, on_character_snore)
 
@@ -391,7 +366,7 @@ local latencyValueTable = {12, 6, 3}
 -- Variable to not colide with hovering character edit
 local changingOutfit = 0
 
-local function hud_render()
+local function hud_render(currChar)
     local width = djui_hud_get_screen_width() + 1.4
     local widthScale = maxf(width, 321.4) * MATH_DIVIDE_320
     local currChar = character_get_current_number()
@@ -414,7 +389,7 @@ local function hud_render()
         local menuColor = get_menu_color()
         djui_hud_set_color(menuColor.r, menuColor.g, menuColor.b, 255)
         djui_hud_set_font(FONT_TINY)
-        local string = TEXT_MOD_NAME.." ("..TEXT_MOD_VERSION..")"
+        local string = CREAM_CS_MOD_NAME.." ("..CREAM_CS_MOD_VERSION..")"
         djui_hud_print_text(string, width - 5 - djui_hud_measure_text(string)*0.5, 3, 0.5)
 
         ---@type Controller
@@ -485,19 +460,24 @@ end
 
 hook_render_in_menu(hud_render)
 
+-- Simple table to account for more cream models
+local charTable = {
+    CT_CREAM,
+}
+
 -- Change cream's model to her fly one during hovering
 local function cream_model_update(m)
     if not _G.charSelectExists then return end
-    local currChar = character_get_current_number()
 
-    if m.playerIndex == 0 and changingOutfit == 0 and altCostumes[currChar] ~= nil then
-        local currChar = character_get_current_number()
-        local currAlts = altCostumes[currChar]
-        local currSkin = altCostumes[currChar][currAlts.currSkin]
-        if (m.action == ACT_HOVERING and (m.flags & MARIO_WING_CAP) == 0) then
-            character_edit(currChar, nil, nil, nil, nil, currSkin.flyModel)
-        else
-            character_edit(currChar, nil, nil, nil, nil, currSkin.model)
+    for _, currChar in ipairs(charTable) do
+        if m.playerIndex == 0 and changingOutfit == 0 and altCostumes[currChar] ~= nil then
+            local currAlts = altCostumes[currChar]
+            local currSkin = altCostumes[currChar][currAlts.currSkin]
+            if (m.action == ACT_HOVERING and (m.flags & MARIO_WING_CAP) == 0) then
+                character_edit(currChar, nil, nil, nil, nil, currSkin.flyModel)
+            else
+                character_edit(currChar, nil, nil, nil, nil, currSkin.model)
+            end
         end
     end
 end
@@ -506,16 +486,25 @@ hook_event(HOOK_MARIO_UPDATE, cream_model_update)
 
 -- Check for cream's model to do her exclusive actions
 local function character_has_cream_model(m)
-    for _, costume in ipairs(altCostumes[CT_CREAM]) do
-        if
-            obj_has_model_extended(m.marioObj, costume.model) ~= 0 or
-                obj_has_model_extended(m.marioObj, costume.flyModel) ~= 0
-         then
-            return true
+    for _, char in ipairs(charTable) do
+        if altCostumes[char] then
+            for _, costume in ipairs(altCostumes[char]) do
+                if
+                    obj_has_model_extended(m.marioObj, costume.model) ~= 0 or
+                    obj_has_model_extended(m.marioObj, costume.flyModel) ~= 0
+                then
+                    return true
+                end
+            end
         end
     end
     return false
 end
+
+-----------------------------------------
+--- Act Cream exit star code          ---
+--- Ported from SC64 by AloXado320    ---
+-----------------------------------------
 
 ACT_CREAM_EXIT_STAR = allocate_mario_action(ACT_FLAG_STATIONARY | ACT_FLAG_INTANGIBLE)
 
@@ -650,3 +639,56 @@ local function mario_update(m)
 end
 
 hook_event(HOOK_MARIO_UPDATE, mario_update)
+
+-------------------------------
+--- Cream API code wrappers ---
+--- By AloXado320 ---
+-------------------------------
+
+function cream_character_get_character()
+    return CT_CREAM
+end
+
+function cream_character_get_life_icon()
+    return TEX_CREAM_LIFE_ICON
+end
+
+function cream_character_add_health_meter(cs)
+    return _G.charSelect.character_add_health_meter(cs, creamHealthMeter)
+end
+
+function cream_character_add_char(cs)
+    table.insert(charTable, cs)
+end
+
+function cream_character_add_model(model, flyModel)
+    _G.charSelect.character_add_caps(model, CAPTABLE_CREAM)
+    _G.charSelect.character_add_voice(model, VOICETABLE_CREAM)
+    _G.charSelect.character_add_voice(flyModel, VOICETABLE_CREAM)
+    _G.charSelect.character_add_celebration_star(model, E_MODEL_CREAM_STAR, TEX_CREAM_STAR_ICON)
+end
+
+function cream_character_add_costume(cs, costume)
+    if not altCostumes[cs] then
+        altCostumes[cs] = {
+            currSkin = 1,
+        }
+    end
+    altCostumes[cs][#altCostumes[cs] + 1] = costume
+end
+
+-- Cream model allocation --
+cream_character_add_model(E_MODEL_CREAM, E_MODEL_CREAM_FLY)
+cream_character_add_model(E_MODEL_CREAMEX, E_MODEL_CREAMEX_FLY)
+cream_character_add_model(E_MODEL_CREAM2, E_MODEL_CREAM2_FLY)
+cream_character_add_model(E_MODEL_CREAM3, E_MODEL_CREAM3_FLY)
+cream_character_add_model(E_MODEL_CREAM4, E_MODEL_CREAM4_FLY)
+cream_character_add_model(E_MODEL_CREAM5, E_MODEL_CREAM5_FLY)
+cream_character_add_model(E_MODEL_CREAM6, E_MODEL_CREAM6_FLY)
+cream_character_add_model(E_MODEL_CREAM7, E_MODEL_CREAM7_FLY)
+cream_character_add_model(E_MODEL_CREAM8, E_MODEL_CREAM8_FLY)
+cream_character_add_model(E_MODEL_CREAM9, E_MODEL_CREAM9_FLY)
+cream_character_add_model(E_MODEL_CREAM10, E_MODEL_CREAM10_FLY)
+cream_character_add_model(E_MODEL_CREAM11, E_MODEL_CREAM11_FLY)
+cream_character_add_model(E_MODEL_CREAM12, E_MODEL_CREAM12_FLY)
+cream_character_add_model(E_MODEL_CREAM13, E_MODEL_CREAM13_FLY)
