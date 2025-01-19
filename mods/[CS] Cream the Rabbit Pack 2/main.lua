@@ -11,7 +11,7 @@ E_MODEL_CREAM1_FLY_PACK2 = smlua_model_util_get_id("cream_vanilla_fly_geo") -- L
 E_MODEL_CREAM2_FLY_PACK2 = smlua_model_util_get_id("cream_amy_fly_geo") -- Located in "actors"
 
 if not _G.CreamBunCsExists then
-    djui_popup_create("\\#ffffdc\\\n"..TEXT_MOD_NAME.."\nRequires the Cream Character Mod\nto use as a Library!\n\nPlease turn on the Cream Character Mod\nand Restart the Room!", 6)
+    djui_popup_create("\\#ffffdc\\\n"..TEXT_MOD_NAME.."\nRequires the Cream CS Mod\nto use as a Library!\n\nPlease turn on the Cream CS Mod\nand Restart the Room!", 6)
     return 0
 end
 
