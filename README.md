@@ -3,9 +3,9 @@ A redone version of the original [CS] Cream the Rabbit to faithfully add the cha
 
 Tested on sm64coopdx 1.0.4 and above
 
-## Features:
+## Features
 * Animations are now independent from the base model
-* Added hovering action and fixed some network sync issues with it
+* Added hovering action and fixed network sync issues using it
 * Added expressions when she gets a star and exits a painting
 * A personal API made to easily integrate costume packs
 
@@ -48,6 +48,37 @@ Click on each pack to see a list of costumes included:
   * Dr. Eggman
   * Cheese (Chao Chao!)
   * Nights
+</details>
+
+<details>
+  <summary><strong>Cream Pack 3 (Cream Cosplay Vol 1)</strong></summary>
+  
+  * Super Mario
+  * Princess Daisy
+  * Klonoa (Wahoo)
+  * Engineer
+  * Ichiban Kasuga
+  * Travis Touchdown
+  * Jack Garland
+  * Sakura Kasugano
+  * Dudley
+  * Luke Sullivan (From Streets)
+  * Roll
+  * Megaman X
+  * Lan Hikari
+  * Vergil
+  * Terry Bogard
+  * Maria Renard
+  * Richter Belmont
+  * Charlotte Aulin
+  * Goemon
+  * Mimi
+  * Ryuta Ippongi
+  * Peppino Spaghetti
+  * Angry Videogame Nerd
+  * Sora
+  * Kairi
+  * Parappa
 </details>
 
 ## Credits
