@@ -1,7 +1,9 @@
 # Cream the Rabbit - Character Select
 A redone version of the original [CS] Cream the Rabbit to faithfully add the character along with some extras features taken from Super Cream 64.
 
-Tested on sm64coopdx 1.0.4 and above
+Tested on sm64coopdx 1.0.4 and Character Select 1.9.1
+
+![Preview](https://github.com/AloXado320/char-select-cream/raw/main/preview.png)
 
 ## Features
 * Animations are now independent from the base model
@@ -16,7 +18,7 @@ This allows to independently activate each pack before hosting, for example all 
 Click on each pack to see a list of costumes included:
 
 <details>
-  <summary><strong>Cream Pack 1 (Official outfits)</strong></summary>
+  <summary><strong>Cream Pack 1 (Official Outfits)</strong></summary>
   
   * Riders
   * Winter
@@ -112,6 +114,14 @@ Click on each pack to see a list of costumes included:
   * Stone Cold Steve Austin
   * Pomni
 </details>
+
+## TODO
+The main goal of integrating her hover action and outfits is done. So while this mod is feature complete, there's still some things I would like to personally add
+
+* Some remaining outfits from Super Cream 64, potentially as a new pack or add from an existing one
+* Expressions during peach end cutscene, that is if people play Cream on vanilla courses of course
+* WiddlePets integration, some Cream outfits have their own Cheese outfit in Super Cream 64
+* Smart detection of later CoopDX and CS versions, for better hooks while maintaining legacy compatibility
 
 ## Credits
 * AloXado320 - For coding the mod with some help from the people below

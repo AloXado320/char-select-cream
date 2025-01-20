@@ -125,7 +125,6 @@ for i=0,(MAX_PLAYERS-1) do
     e.flySoundState = 0
 end
 
-
 --[[
     Note: If there are some functionalities you don't care
     to add such as palettes, you can freely remove the function
@@ -134,7 +133,7 @@ end
 
 -- Cream main character creation
 -- Use default character select functions for her base models
-CT_CREAM = _G.charSelect.character_add("Cream the Rabbit", {"She a bnuuy, She go hop!", "", "Straight from Super Cream 64,", "she's ready to go make some new friends!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, E_MODEL_CREAM, CT_MARIO, TEX_CREAM_LIFE_ICON)
+CT_CREAM = _G.charSelect.character_add("Cream the Rabbit", {"She a bnuuy, She go hop!", "", "Straight from Super Cream 64", "Ready to go make some new friends!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, E_MODEL_CREAM, CT_MARIO, TEX_CREAM_LIFE_ICON)
 
 _G.charSelect.character_add_health_meter(CT_CREAM, creamHealthMeter)
 
@@ -301,6 +300,7 @@ local math_min = math.min
 local math_max = math.max
 local math_sin = math.sin
 
+-- This table gets filled as more costumes packs are installed
 local altCostumes = {
     [CT_CREAM] = {
         currSkin = 1,
@@ -435,7 +435,7 @@ end
 
 hook_render_in_menu(hud_render)
 
--- Simple table to account for more cream models
+-- Simple table to account for more cream character packs
 local charTable = {
     CT_CREAM,
 }
