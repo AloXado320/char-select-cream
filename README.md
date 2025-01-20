@@ -81,6 +81,38 @@ Click on each pack to see a list of costumes included:
   * Parappa
 </details>
 
+<details>
+  <summary><strong>Cream Pack 4 (Cream Cosplay Vol 2)</strong></summary>
+  
+  * Vanny
+  * Madotsuki
+  * Arle
+  * Dawn
+  * Serena
+  * The Hero
+  * The Mage
+  * Sybil
+  * Hatsune Miku
+  * Wonder-Bun
+  * Sena
+  * Olimar
+  * Pit
+  * Ribbon
+  * Anya Forger
+  * Rukia Kuchiki
+  * Jin Kariya
+  * Monkey D. Luffy
+  * Carrot
+  * Hey, It's Him! Goku!
+  * Pan
+  * Nezuko Kamado
+  * Yugi Muto
+  * Cream (The other one)
+  * Sakura Kinomoto
+  * Stone Cold Steve Austin
+  * Pomni
+</details>
+
 ## Credits
 * AloXado320 - For coding the mod with some help from the people below
 * Gamebun - For creating Super Cream 64 and the original version of the [CS] Cream
