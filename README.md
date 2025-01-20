@@ -15,36 +15,36 @@ This allows to independently activate each pack before hosting, for example all 
 Click on each pack to see a list of costumes included (TODO: Make the list better)
 
 <details>
-  <summary>**Cream Pack 1 (Official outfits)**</summary>
-Riders
-Winter
-Spring
-Unicorn
-Yukata
-Swimsuit
-Halloween
-Junihotoe
-Princess
-Detective
-Drummer
-Lunar New Year (by Jennifer Hernandez)
+  <summary><strong>Cream Pack 1 (Official outfits)</strong></summary>
+* Riders
+* Winter
+* Spring
+* Unicorn
+* Yukata
+* Swimsuit
+* Halloween
+* Junihotoe
+* Princess
+* Detective
+* Drummer
+* Lunar New Year (by Jennifer Hernandez)
 </details>
 
 <details>
-  <summary>**Cream Pack 2 (Cream and Friends)**</summary>
-Young Vanilla
-Amy Rose
-Blaze the Cat
-Marine the Raccoon
-Shadow the Hedgehog
-Silver the Hedgehog
-Miles 'Tails' Power
-Charmy Bee
-Tikal the Echidna
-Cosmo the Seedrian
-Dr. Eggman
-Cheese (Chao Chao!)
-Nights
+  <summary><strong>Cream Pack 2 (Cream and Friends)</strong></summary>
+* Young Vanilla
+* Amy Rose
+* Blaze the Cat
+* Marine the Raccoon
+* Shadow the Hedgehog
+* Silver the Hedgehog
+* Miles 'Tails' Power
+* Charmy Bee
+* Tikal the Echidna
+* Cosmo the Seedrian
+* Dr. Eggman
+* Cheese (Chao Chao!)
+* Nights
 </details>
 
 ## Credits

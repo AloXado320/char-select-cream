@@ -4,6 +4,7 @@
 
 local TEXT_MOD_NAME = "Cream (Pack 1)"
 
+-- Use the same number order as in Super Cream 64
 E_MODEL_CREAM2 = smlua_model_util_get_id("cream_riders_geo") -- Located in "actors"
 E_MODEL_CREAM3 = smlua_model_util_get_id("cream_winter_geo") -- Located in "actors"
 E_MODEL_CREAM4 = smlua_model_util_get_id("cream_spring_geo") -- Located in "actors"
@@ -53,18 +54,9 @@ local newCostumes = {
     {name = "Lunar NY, by Jennifer Hernandez", model = E_MODEL_CREAM13, flyModel = E_MODEL_CREAM13_FLY},
 }
 
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM2, E_MODEL_CREAM2_FLY)
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM3, E_MODEL_CREAM3_FLY)
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM4, E_MODEL_CREAM4_FLY)
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM5, E_MODEL_CREAM5_FLY)
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM6, E_MODEL_CREAM6_FLY)
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM7, E_MODEL_CREAM7_FLY)
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM8, E_MODEL_CREAM8_FLY)
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM9, E_MODEL_CREAM9_FLY)
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM10, E_MODEL_CREAM10_FLY)
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM11, E_MODEL_CREAM11_FLY)
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM12, E_MODEL_CREAM12_FLY)
-_G.CreamBunCsApi.creamcs_add_model(E_MODEL_CREAM13, E_MODEL_CREAM13_FLY)
+for _, costume in ipairs(newCostumes) do
+    _G.CreamBunCsApi.creamcs_add_model(costume.model, costume.flyModel)
+end
 
 for _, newCostume in ipairs(newCostumes) do
     _G.CreamBunCsApi.creamcs_add_costume(creamcs_get_character(), newCostume)

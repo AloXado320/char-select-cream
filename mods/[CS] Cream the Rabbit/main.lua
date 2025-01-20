@@ -322,7 +322,7 @@ local function update_character_skin(currChar, currAlt)
         table_insert(description, "")
         table_insert(description, "Outfit: "..currSkin.name)
     end
-    if (gMarioStates[0].action == ACT_HOVERING and (gMarioStates[0].flags & MARIO_WING_CAP) == 0) then
+    if (gMarioStates[0].action == ACT_HOVERING and (gMarioStates[0].flags & MARIO_WING_CAP) == 0) and currSkin.flyModel ~= nil then
         character_edit(currChar, nil, description, nil, nil, currSkin.flyModel, nil, nil)
     else
         character_edit(currChar, nil, description, nil, nil, currSkin.model, nil, nil)
@@ -448,7 +448,7 @@ local function cream_model_update(m)
         if m.playerIndex == 0 and changingOutfit == 0 and altCostumes[currChar] ~= nil then
             local currAlts = altCostumes[currChar]
             local currSkin = altCostumes[currChar][currAlts.currSkin]
-            if (m.action == ACT_HOVERING and (m.flags & MARIO_WING_CAP) == 0) then
+            if (m.action == ACT_HOVERING and (m.flags & MARIO_WING_CAP) == 0) and currSkin.flyModel ~= nil then
                 character_edit(currChar, nil, nil, nil, nil, currSkin.flyModel)
             else
                 character_edit(currChar, nil, nil, nil, nil, currSkin.model)
@@ -466,7 +466,7 @@ local function character_has_cream_model(m)
             for _, costume in ipairs(altCostumes[char]) do
                 if
                     obj_has_model_extended(m.marioObj, costume.model) ~= 0 or
-                    obj_has_model_extended(m.marioObj, costume.flyModel) ~= 0
+                    (costume.flyModel ~= nil and obj_has_model_extended(m.marioObj, costume.flyModel) ~= 0)
                 then
                     return true
                 end
@@ -639,8 +639,10 @@ end
 function cream_character_add_model(model, flyModel)
     _G.charSelect.character_add_caps(model, CAPTABLE_CREAM)
     _G.charSelect.character_add_voice(model, VOICETABLE_CREAM)
-    _G.charSelect.character_add_voice(flyModel, VOICETABLE_CREAM)
     _G.charSelect.character_add_celebration_star(model, E_MODEL_CREAM_STAR, TEX_CREAM_STAR_ICON)
+    if flyModel ~= nil then
+        _G.charSelect.character_add_voice(flyModel, VOICETABLE_CREAM)
+    end
 end
 
 function cream_character_add_costume(cs, costume)
