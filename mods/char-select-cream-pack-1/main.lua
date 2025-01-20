@@ -36,9 +36,6 @@ if not _G.CreamBunCsExists then
     return 0
 end
 
-local creamcs_get_character = _G.CreamBunCsApi.creamcs_get_character
-local creamcs_get_life_icon = _G.CreamBunCsApi.creamcs_get_life_icon
-
 local newCostumes = {
     {name = "Riders", model = E_MODEL_CREAM2, flyModel = E_MODEL_CREAM2_FLY},
     {name = "Winter", model = E_MODEL_CREAM3, flyModel = E_MODEL_CREAM3_FLY},
@@ -59,5 +56,5 @@ for _, costume in ipairs(newCostumes) do
 end
 
 for _, newCostume in ipairs(newCostumes) do
-    _G.CreamBunCsApi.creamcs_add_costume(creamcs_get_character(), newCostume)
+    _G.CreamBunCsApi.creamcs_add_costume(_G.CreamBunCsApi.creamcs_get_character(), newCostume)
 end

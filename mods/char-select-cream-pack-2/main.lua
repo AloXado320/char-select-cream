@@ -57,7 +57,7 @@ local newCostumes = {
     {name = "NiGHTS", model = E_MODEL_CREAM26, flyModel = E_MODEL_CREAM26_FLY},
 }
 
-CT_CREAM_PACK2 = _G.charSelect.character_add("Cream and Friends", {"She a bnuuy, She go hop!", "", "Pack 2 for Cream the Rabbit,", "she's ready to go make some new friends!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, E_MODEL_CREAM14, creamcs_get_character(), creamcs_get_life_icon())
+CT_CREAM_PACK2 = _G.charSelect.character_add("Cream and Friends", {"She a bnuuy, She go hop!", "", "Pack 2 - Cream the Rabbit", "Ready to dress up as their friends!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, newCostumes[1].model, creamcs_get_character(), creamcs_get_life_icon())
 
 _G.CreamBunCsApi.creamcs_add_health_meter(CT_CREAM_PACK2)
 

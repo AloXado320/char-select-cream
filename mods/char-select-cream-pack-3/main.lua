@@ -57,7 +57,7 @@ E_MODEL_CREAM48_FLY = smlua_model_util_get_id("cream_peppino_fly_geo") -- Locate
 E_MODEL_CREAM49_FLY = smlua_model_util_get_id("cream_avgn_fly_geo") -- Located in "actors"
 E_MODEL_CREAM50_FLY = smlua_model_util_get_id("cream_sora_fly_geo") -- Located in "actors"
 E_MODEL_CREAM51_FLY = smlua_model_util_get_id("cream_kairi_fly_geo") -- Located in "actors"
---E_MODEL_CREAM52_FLY = smlua_model_util_get_id("cream_parappa_fly_geo") -- Located in "actors""
+--E_MODEL_CREAM52_FLY = smlua_model_util_get_id("cream_parappa_fly_geo") -- Located in "actors"
 
 if not _G.CreamBunCsExists then
     djui_popup_create("\\#ffffdc\\\n"..TEXT_MOD_NAME.."\nRequires the Cream CS Mod\nto use as a Library!\n\nPlease turn on the Cream CS Mod\nand Restart the Room!", 6)
@@ -96,7 +96,7 @@ local newCostumes = {
     {name = "Parappa", model = E_MODEL_CREAM52, flyModel = nil},
 }
 
-CT_CREAM_PACK3 = _G.charSelect.character_add("Cream Cosplay Vol 1", {"She a bnuuy, She go hop!", "", "Pack 3 for Cream the Rabbit,", "she's ready to go make some new friends!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, E_MODEL_CREAM27, creamcs_get_character(), creamcs_get_life_icon())
+CT_CREAM_PACK3 = _G.charSelect.character_add("Cream Cosplay Vol 1", {"She a bnuuy, She go hop!", "", "Pack 3 - Cream the Rabbit", "Ready to dress up as other characters!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, newCostumes[1].model, creamcs_get_character(), creamcs_get_life_icon())
 
 _G.CreamBunCsApi.creamcs_add_health_meter(CT_CREAM_PACK3)
 

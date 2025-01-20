@@ -85,6 +85,7 @@ local CAPTABLE_CREAM = {
 
 local E_MODEL_CREAM_STAR = smlua_model_util_get_id("cream_star_geo") -- Located in "actors"
 
+-- Old palette from original version
 local PALETTE_CREAM = {
     [PANTS]  = "FCC201",
     [SHIRT]  = "FF5A00",
@@ -96,7 +97,6 @@ local PALETTE_CREAM = {
     [EMBLEM] = "77B9E2",
 }
 
---
 -- All Located in "textures"
 local creamHealthMeter = {
     label = {
@@ -166,7 +166,7 @@ hook_event(HOOK_MARIO_UPDATE, on_character_snore)
 
 ACT_HOVERING = allocate_mario_action(ACT_FLAG_AIR | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION)
 
-function convert_s16(num)
+local function convert_s16(num)
     local min = -32768
     local max = 32767
     while (num < min) do
