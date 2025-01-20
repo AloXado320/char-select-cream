@@ -1,5 +1,5 @@
 -- name: [CS] [Bun] Cream (Pack 2)
--- description: Cream the Rabbit Costume Pack 2.\nCream & Friends.\n\n\\#ff7777\\This Pack requires Cream CS Mod\nto use as a Library!
+-- description: Cream the Rabbit Costume Pack 2.\nCream and Friends.\n\n\\#ff7777\\This Pack requires Cream CS Mod\nto use as a Library!
 -- category: cs
 
 local TEXT_MOD_NAME = "Cream (Pack 2)"
@@ -57,7 +57,7 @@ local newCostumes = {
     {name = "NiGHTS", model = E_MODEL_CREAM26, flyModel = E_MODEL_CREAM26_FLY},
 }
 
-CT_CREAM_PACK2 = _G.charSelect.character_add("Cream & Friends", {"She a bnuuy, She go hop!", "", "Pack 2 for Cream the Rabbit,", "she's ready to go make some new friends!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, E_MODEL_CREAM14, creamcs_get_character(), creamcs_get_life_icon())
+CT_CREAM_PACK2 = _G.charSelect.character_add("Cream and Friends", {"She a bnuuy, She go hop!", "", "Pack 2 for Cream the Rabbit,", "she's ready to go make some new friends!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, E_MODEL_CREAM14, creamcs_get_character(), creamcs_get_life_icon())
 
 _G.CreamBunCsApi.creamcs_add_health_meter(CT_CREAM_PACK2)
 
