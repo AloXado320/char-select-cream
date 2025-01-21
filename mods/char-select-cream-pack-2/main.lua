@@ -53,7 +53,7 @@ local newCostumes = {
     {name = "Tikal the Echidna", model = E_MODEL_CREAM22, flyModel = E_MODEL_CREAM22_FLY},
     {name = "Cosmo the Seedrian", model = E_MODEL_CREAM23, flyModel = E_MODEL_CREAM23_FLY},
     {name = "Dr. Eggman", model = E_MODEL_CREAM24, flyModel = E_MODEL_CREAM24_FLY},
-    {name = "Cheese (Chao Chao!)", model = E_MODEL_CREAM25, flyModel = nil},
+    {name = "Cheese the Chao", model = E_MODEL_CREAM25, flyModel = nil},
     {name = "NiGHTS", model = E_MODEL_CREAM26, flyModel = E_MODEL_CREAM26_FLY},
 }
 

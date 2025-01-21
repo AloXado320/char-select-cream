@@ -115,12 +115,12 @@ Click on each pack to see a list of costumes included:
   * Pomni (The Amazing Digital Circus)
 </details>
 
+While there are more outfits available in Super Cream 64, the remaining ones not in these packs were omitted on purpose since they were all created for friends, mutuals and streamers. If they do wish to let these be available through this mod, this git will be updated but don't expect those anytime soon. 
 ## TODO
 The main goal of integrating her hover action and outfits is done. So while this mod is feature complete, there's still some things I would like to personally add
 
 * Some remaining outfits from Super Cream 64, potentially as a new pack or add from an existing one
 * Expressions during peach end cutscene, that is if people play Cream on vanilla courses of course
-* WiddlePets integration, some Cream outfits have their own Cheese outfit in Super Cream 64
 * Smart detection of later CoopDX and CS versions, for better hooks while maintaining legacy compatibility
 
 ## Credits
