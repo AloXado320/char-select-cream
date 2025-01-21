@@ -20,99 +20,99 @@ Click on each pack to see a list of costumes included:
 <details>
   <summary><strong>Cream Pack 1 (Official Outfits)</strong></summary>
   
-  * Riders
-  * Winter
-  * Spring
-  * Unicorn
-  * Yukata
-  * Swimsuit
-  * Halloween
-  * Junihotoe
-  * Princess
-  * Detective
-  * Drummer
-  * Lunar New Year (by Jennifer Hernandez)
+  * Riders (Sonic Riders)
+  * Winter (Sonic Channel)
+  * Spring (Sonic Forces Speed Battle)
+  * Unicorn (Sonic Forces Speed Battle)
+  * Yukata (Mario & Sonic 2020 Tokyo Olympics)
+  * Swimsuit (Sonic X)
+  * Halloween (Sonic Channel)
+  * Junihotoe (Sonic Channel)
+  * Princess (Sonic IDW Issue 22 RI Cover)
+  * Detective (Sonic Channel)
+  * Drummer (Sonic Forces Speed Battle)
+  * Lunar New Year ([design by Jennifer Hernandez](https://bsky.app/profile/chibijenhen.bsky.social))
 </details>
 
 <details>
   <summary><strong>Cream Pack 2 (Cream and Friends)</strong></summary>
   
-  * Young Vanilla
-  * Amy Rose
-  * Blaze the Cat
-  * Marine the Raccoon
-  * Shadow the Hedgehog
-  * Silver the Hedgehog
-  * Miles 'Tails' Power
-  * Charmy Bee
-  * Tikal the Echidna
-  * Cosmo the Seedrian
-  * Dr. Eggman
-  * Cheese (Chao Chao!)
-  * Nights
+  * Young Vanilla (Sonic Advance 2, [design by Zack113](https://bsky.app/profile/zack113d.bsky.social))
+  * Amy Rose (Sonic Adventure)
+  * Blaze the Cat (Sonic Rush)
+  * Marine the Raccoon (Sonic Rush Adventure)
+  * Shadow the Hedgehog (Sonic Adventure 2)
+  * Silver the Hedgehog (Sonic the Hedgehog (2006))
+  * Miles 'Tails' Power (Sonic the Hedgehog 2)
+  * Charmy Bee (Sonic Heroes)
+  * Tikal the Echidna (Sonic Adventure)
+  * Cosmo the Seedrian (Sonic X)
+  * Dr. Eggman (Sonic Adventure, [Design by TheNovika](https://bsky.app/profile/thenovika.bsky.social))
+  * Cheese the Chao (Sonic Adventure 2)
+  * NiGHTS (NiGHTS into Dreams)
 </details>
 
 <details>
   <summary><strong>Cream Pack 3 (Cream Cosplay Vol 1)</strong></summary>
   
-  * Super Mario
-  * Princess Daisy
-  * Klonoa (Wahoo)
-  * Engineer
-  * Ichiban Kasuga
-  * Travis Touchdown
-  * Jack Garland
-  * Sakura Kasugano
-  * Dudley
-  * Luke Sullivan (From Streets)
-  * Roll
-  * Megaman X
-  * Lan Hikari
-  * Vergil
-  * Terry Bogard
-  * Maria Renard
-  * Richter Belmont
-  * Charlotte Aulin
-  * Goemon
-  * Mimi
-  * Ryuta Ippongi
-  * Peppino Spaghetti
-  * Angry Videogame Nerd
-  * Sora
-  * Kairi
-  * Parappa
+  * Super Mario (Super Mario 64)
+  * Princess Daisy (Mario Tennis)
+  * Klonoa (Klonoa: Door to Phantomile)
+  * Engineer (Team Fortress 2)
+  * Ichiban Kasuga (Yakuza 7: Like a Dragon)
+  * Travis Touchdown (No More Heroes)
+  * Jack Garland (Stranger of Paradise: Final Fantasy Origins)
+  * Sakura Kasugano (Street Fighter Alpha 2)
+  * Dudley (Street Fighter 3)
+  * Luke Sullivan (Street Fighter 6)
+  * Roll (Megaman 8)
+  * Megaman X (Megaman X)
+  * Lan Hikari (Megaman Battle Network)
+  * Vergil (Devil May Cry 3/Ultimate Marvel vs Capcom 3)
+  * Terry Bogard (Fatal Fury/King of Fighters)
+  * Maria Renard (Castlevania: Rondo of Blood)
+  * Richter Belmont (Castlevania: Rondo of Blood)
+  * Charlotte Aulin  (Castlevania: Portrait of Ruin)
+  * Goemon (Mystical Ninja Starring Goemon)
+  * Mimi (Pop'n Music 15 Adventure)
+  * Ryuta Ippongi (Osu! Tatakae! Ouendan!)
+  * Peppino Spaghetti (Pizza Tower)
+  * Angry Videogame Nerd (AVGN Adventures/Cinemassacre)
+  * Sora (Kingdom Hearts)
+  * Kairi (Kingdom Hearts Birth by Sleep)
+  * Parappa (Parappa the Rapper)
 </details>
 
 <details>
   <summary><strong>Cream Pack 4 (Cream Cosplay Vol 2)</strong></summary>
   
-  * Vanny
-  * Madotsuki
-  * Arle
-  * Dawn
-  * Serena
-  * The Hero
-  * The Mage
-  * Sybil
-  * Hatsune Miku
-  * Wonder-Bun
-  * Sena
-  * Olimar
-  * Pit
-  * Ribbon
-  * Anya Forger
-  * Rukia Kuchiki
-  * Jin Kariya
-  * Monkey D. Luffy
-  * Carrot
-  * Hey, It's Him! Goku!
-  * Pan
-  * Nezuko Kamado
-  * Yugi Muto
-  * Cream (The other one)
-  * Sakura Kinomoto
-  * Stone Cold Steve Austin
-  * Pomni
+  * Vanny (FNAF: Security Breach)
+  * Madotsuki (Yume Nikki)
+  * Arle (Puyo Puyo)
+  * Dawn (Pokemon Diamond and Pearl)
+  * Serena (Pokemon X and Y)
+  * The Hero (Dragon Quest 3)
+  * The Mage (Dragon Quest 3)
+  * Sybil (Pseudoregalia)
+  * Hatsune Miku ([design by _motobug](https://bsky.app/profile/motobug.bsky.social))
+  * Wonder-Bun (Wonderful 101)
+  * Sena (Xenoblade Chronicles 3)
+  * Olimar (Pikmin)
+  * Pit (Kid Icarus Uprising)
+  * Ribbon (Kirby 64)
+  * Anya Forger (SPYxFAMILY)
+  * Rukia Kuchiki (Bleach)
+  * Jin Kariya (Bleach)
+  * Monkey D. Luffy (One Piece)
+  * Carrot (One Piece)
+  * Goku (Dragon Ball Z)
+  * Pan (Dragon Ball Super: Super Hero)
+  * Nezuko Kamado (Demon Slayer)
+  * Yugi Muto (Yu-Gi-Oh!)
+  * Cream (Senshi Bakuretsu Eto Ranger)
+  * Sakura Kinomoto (Cardcaptor Sakura)
+  * Stone Cold Steve Austin (WWE/Wrestling)
+  * Pomni (The Amazing Digital Circus)
 </details>
 
 ## TODO
