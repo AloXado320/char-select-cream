@@ -66,7 +66,6 @@ if not _G.CreamBunCsExists then
     return 0
 end
 
-local creamcs_get_character = _G.CreamBunCsApi.creamcs_get_character
 local creamcs_get_life_icon = _G.CreamBunCsApi.creamcs_get_life_icon
 
 local newCostumes = {
@@ -99,7 +98,7 @@ local newCostumes = {
     {name = "Pomni", model = E_MODEL_CREAM79, flyModel = nil},
 }
 
-CT_CREAM_PACK4 = _G.charSelect.character_add("Cream Cosplay Vol 2", {"She a bnuuy, She go hop!", "", "Pack 4 - Cream the Rabbit", "Ready to dress up as other characters!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, newCostumes[1].model, creamcs_get_character(), creamcs_get_life_icon())
+CT_CREAM_PACK4 = _G.charSelect.character_add("Cream Cosplay Vol 2", {"She a bnuuy, She go hop!", "", "Pack 4 - Cream the Rabbit", "Ready to dress up as other characters!", "", "HUD Sprites made by SketchMeister","New voice clips by MagaicalPoptarts"}, "Gamebun", {r = 248, g = 224, b = 184}, newCostumes[1].model, CT_MARIO, creamcs_get_life_icon())
 
 _G.CreamBunCsApi.creamcs_add_health_meter(CT_CREAM_PACK4)
 
