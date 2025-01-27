@@ -1,4 +1,4 @@
--- name: [CS] Cream the Rabbit
+-- name: \\#f8f480\\[CS] Cream the Rabbit\\
 -- description: Starring Cream. She wittle bnuuy. She go hop hop.\n\n\\#ff7777\\This Pack requires Character Select\nto use as a Library!
 
 --[[
@@ -123,6 +123,7 @@ for i=0,(MAX_PLAYERS-1) do
     e.flyTimer = 0
     e.flyStamina = 0
     e.flySoundState = 0
+    e.flyDisable = 0
 end
 
 --[[
@@ -158,12 +159,20 @@ end
 hook_event(HOOK_CHARACTER_SOUND, on_character_sound)
 hook_event(HOOK_MARIO_UPDATE, on_character_snore)
 
+-- Cream menu character options
+local function cream_toggle_act_hover(index, value)
+    local e = gCreamState[gMarioStates[0].playerIndex]
+    e.flyDisable = value
+end
+
+hook_mod_menu_checkbox("Disable Hover (Local)", false, cream_toggle_act_hover)
+
 -----------------------------------------
 --- Act Hovering code                 ---
 --- By Alonwoof, ported by AloXado320 ---
 -----------------------------------------
 
-ACT_HOVERING = allocate_mario_action(ACT_FLAG_AIR | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION)
+ACT_HOVERING = allocate_mario_action(ACT_GROUP_AIRBORNE | ACT_FLAG_AIR | ACT_FLAG_ALLOW_VERTICAL_WIND_ACTION)
 
 local function convert_s16(num)
     local min = -32768
@@ -229,6 +238,7 @@ local function act_hovering(m)
             m.vel.z = m.vel.z * 0.65
             play_mario_sound(m, 0, CHAR_SOUND_TWIRL_BOUNCE)
             e.flySoundState = 1
+            set_camera_mode(m.area.camera, m.area.camera.defMode, 1)
         end
 
         --Only effect stamina when moving.
@@ -264,9 +274,9 @@ local function act_hovering(m)
 
     m.actionTimer = m.actionTimer + 1
 
+    smlua_anim_util_set_animation(m.marioObj, "cream_anim_hovering")
     common_air_action_step(m, ACT_FREEFALL_LAND, MARIO_ANIM_TWIRL, AIR_STEP_CHECK_LEDGE_GRAB)
     update_air_hovering(m)
-    smlua_anim_util_set_animation(m.marioObj, "cream_anim_hovering")
 
     return false
 end
@@ -481,7 +491,7 @@ end
 --- Ported from SC64 by AloXado320    ---
 -----------------------------------------
 
-ACT_CREAM_EXIT_STAR = allocate_mario_action(ACT_FLAG_STATIONARY | ACT_FLAG_INTANGIBLE)
+ACT_CREAM_EXIT_STAR = allocate_mario_action(ACT_GROUP_CUTSCENE | ACT_FLAG_STATIONARY | ACT_FLAG_INTANGIBLE)
 
 local function act_cream_exit_star(m)
     stationary_ground_step(m)
@@ -585,7 +595,7 @@ local function cream_update(m, e)
     cream_set_expressions(m)
 
     -- Hovering
-    if m.vel.y < 20 and m.prevAction ~= ACT_HOVERING then
+    if m.vel.y < 20 and m.prevAction ~= ACT_HOVERING and e.flyDisable == 0 then
         if creamHoverAct[m.action] and (m.input & INPUT_A_PRESSED) ~= 0 then
             set_mario_action(m, ACT_HOVERING, 0)
         end
