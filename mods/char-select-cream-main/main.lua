@@ -1,4 +1,4 @@
--- name: \\#f8f480\\[CS] Cream the Rabbit\\
+-- name: \\#f8f480\\[CS] Cream the Rabbit
 -- description: Starring Cream. She wittle bnuuy. She go hop hop.\n\n\\#ff7777\\This Pack requires Character Select\nto use as a Library!
 
 --[[
@@ -123,7 +123,8 @@ for i=0,(MAX_PLAYERS-1) do
     e.flyTimer = 0
     e.flyStamina = 0
     e.flySoundState = 0
-    e.flyDisable = 0
+    e.flyDisable = false
+    e.customStarDisable = false
 end
 
 --[[
@@ -141,12 +142,12 @@ _G.charSelect.character_add_health_meter(CT_CREAM, creamHealthMeter)
 _G.charSelect.character_add_caps(E_MODEL_CREAM, CAPTABLE_CREAM)
 _G.charSelect.character_add_voice(E_MODEL_CREAM, VOICETABLE_CREAM)
 _G.charSelect.character_add_voice(E_MODEL_CREAM_FLY, VOICETABLE_CREAM)
-_G.charSelect.character_add_celebration_star(E_MODEL_CREAM, E_MODEL_CREAM_STAR, TEX_CREAM_STAR_ICON)
+_G.charSelect.character_add_celebration_star(E_MODEL_CREAM, nil, TEX_CREAM_STAR_ICON)
 
 _G.charSelect.character_add_caps(E_MODEL_CREAMEX, CAPTABLE_CREAM)
 _G.charSelect.character_add_voice(E_MODEL_CREAMEX, VOICETABLE_CREAM)
 _G.charSelect.character_add_voice(E_MODEL_CREAMEX_FLY, VOICETABLE_CREAM)
-_G.charSelect.character_add_celebration_star(E_MODEL_CREAMEX, E_MODEL_CREAM_STAR, TEX_CREAM_STAR_ICON)
+_G.charSelect.character_add_celebration_star(E_MODEL_CREAMEX, nil, TEX_CREAM_STAR_ICON)
 
 local function on_character_sound(m, sound)
     if _G.charSelect.character_get_voice(m) == VOICETABLE_CREAM then return _G.charSelect.voice.sound(m, sound) end
@@ -165,7 +166,13 @@ local function cream_toggle_act_hover(index, value)
     e.flyDisable = value
 end
 
+local function cream_toggle_custom_star(index, value)
+    local e = gCreamState[gMarioStates[0].playerIndex]
+    e.customStarDisable = value
+end
+
 hook_mod_menu_checkbox("Disable Hover (Local)", false, cream_toggle_act_hover)
+hook_mod_menu_checkbox("Disable Custom Star (Local)", false, cream_toggle_custom_star)
 
 -----------------------------------------
 --- Act Hovering code                 ---
@@ -272,9 +279,9 @@ local function act_hovering(m)
         return set_mario_action(m, ACT_GROUND_POUND, 0)
     end
 
+    smlua_anim_util_set_animation(m.marioObj, "cream_anim_hovering")
     m.actionTimer = m.actionTimer + 1
 
-    smlua_anim_util_set_animation(m.marioObj, "cream_anim_hovering")
     common_air_action_step(m, ACT_FREEFALL_LAND, MARIO_ANIM_TWIRL, AIR_STEP_CHECK_LEDGE_GRAB)
     update_air_hovering(m)
 
@@ -370,7 +377,7 @@ local function hud_render(currChar)
     local inputLockTimerTo = latencyValueTable[get_options_status(_G.charSelect.optionTableRef.inputLatency) + 1]
 
     if altCostumes[currChar] ~= nil then
-        -- Render Mod Variond under CS version
+        -- Render Mod Version under CS version
         local menuColor = get_menu_color()
         djui_hud_set_color(menuColor.r, menuColor.g, menuColor.b, 255)
         djui_hud_set_font(FONT_TINY)
@@ -551,6 +558,39 @@ local function cream_set_expressions(m)
     end
 end
 
+-- Cream's custom star toggle, functions from cs for easier toggle
+--- @param o Object
+--- @param model integer
+local BowserKey = false
+local function on_star_or_key_grab(m, o, type)
+    if type == INTERACT_STAR_OR_KEY then
+        if get_id_from_behavior(o.behavior) == id_bhvBowserKey then
+            BowserKey = true
+        else
+            BowserKey = false
+        end
+    end
+end
+
+local settingModel
+local function cream_set_custom_star(o, model)
+    local e = gCreamState[gMarioStates[0].playerIndex]
+    if settingModel or e.customStarDisable == true then return end
+    if obj_has_behavior_id(o, id_bhvCelebrationStar) ~= 0 and o.parentObj ~= nil then
+        local starModel = E_MODEL_CREAM_STAR
+        if starModel ~= nil and obj_has_model_extended(o, starModel) == 0 and not BowserKey then
+            settingModel = true
+            obj_set_model_extended(o, starModel)
+            settingModel = false
+        end
+        return
+    end
+end
+
+hook_event(HOOK_OBJECT_SET_MODEL, cream_set_custom_star)
+hook_event(HOOK_ON_INTERACT, on_star_or_key_grab)
+
+-- Act requirements to use hover
 local creamHoverAct = {
     [ACT_JUMP] = true,
     [ACT_DOUBLE_JUMP] = true,
@@ -594,23 +634,27 @@ local function cream_update(m, e)
     -- Expressions
     cream_set_expressions(m)
 
-    -- Hovering
-    if m.vel.y < 20 and m.prevAction ~= ACT_HOVERING and e.flyDisable == 0 then
+    -- Hover setup values
+    if m.action == ACT_HOVERING and m.actionTimer > 2 then -- delay to account for animation call
+        m.marioBodyState.wingFlutter = 1
+        m.marioBodyState.capState = MARIO_HAS_WING_CAP_ON
+    end
+
+    -- Hover reset values
+    if m.prevAction == ACT_HOVERING then
+        e.flyStamina = 0
+        e.flyTimer = 0
+        e.soundState = 0
+    end
+
+    -- Hover action checks
+    if m.vel.y < 20 and m.prevAction ~= ACT_HOVERING and e.flyDisable == false then
         if creamHoverAct[m.action] and (m.input & INPUT_A_PRESSED) ~= 0 then
             set_mario_action(m, ACT_HOVERING, 0)
         end
         if m.action == ACT_LONG_JUMP and (m.input & INPUT_B_PRESSED) ~= 0 then
             set_mario_action(m, ACT_HOVERING, 0)
         end
-    end
-
-    if m.action == ACT_HOVERING then
-        m.marioBodyState.wingFlutter = 1
-        m.marioBodyState.capState = MARIO_HAS_WING_CAP_ON
-    else
-        if e.flyStamina ~= 0 then e.flyStamina = 0 end
-        if e.flyTimer ~= 0 then e.flyTimer = 0 end
-        if e.soundState ~= 0 then e.soundState = 0 end
     end
 end
 
@@ -649,7 +693,7 @@ end
 function cream_character_add_model(model, flyModel)
     _G.charSelect.character_add_caps(model, CAPTABLE_CREAM)
     _G.charSelect.character_add_voice(model, VOICETABLE_CREAM)
-    _G.charSelect.character_add_celebration_star(model, E_MODEL_CREAM_STAR, TEX_CREAM_STAR_ICON)
+    _G.charSelect.character_add_celebration_star(model, nil, TEX_CREAM_STAR_ICON)
     if flyModel ~= nil then
         _G.charSelect.character_add_voice(flyModel, VOICETABLE_CREAM)
     end
