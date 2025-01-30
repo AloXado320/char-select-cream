@@ -124,6 +124,7 @@ for i=0,(MAX_PLAYERS-1) do
     e.flyStamina = 0
     e.flySoundState = 0
     e.flyDisable = false
+    e.creamActive = false
     e.customStarDisable = false
 end
 
@@ -574,8 +575,10 @@ end
 
 local settingModel
 local function cream_set_custom_star(o, model)
+    if not _G.charSelectExists then return end
+
     local e = gCreamState[gMarioStates[0].playerIndex]
-    if settingModel or e.customStarDisable == true then return end
+    if settingModel or e.customStarDisable == true or e.creamActive == false then return end
     if obj_has_behavior_id(o, id_bhvCelebrationStar) ~= 0 and o.parentObj ~= nil then
         local starModel = E_MODEL_CREAM_STAR
         if starModel ~= nil and obj_has_model_extended(o, starModel) == 0 and not BowserKey then
@@ -661,8 +664,10 @@ end
 local function mario_update(m)
     if not _G.charSelectExists then return end
     local e = gCreamState[m.playerIndex]
+    e.creamActive = false
 
     if character_has_cream_model(m) then
+        e.creamActive = true
         cream_update(m, e)
     end
 end
